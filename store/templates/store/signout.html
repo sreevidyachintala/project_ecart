@@ -1,0 +1,11 @@
+{% extends 'store/header.html'%}
+{% block title %} sign out form {% endblock title %}
+{% block body %}
+	<div class="container">
+		<div class="jumbotron col-md-5"style = "margin : auto;margin-top: 30px ">
+			<h1>your logged out</h1>
+	<h2><a href="{% url 'signin'%}"> click here to login</a></h2>
+		</div>
+	</div>
+
+{% endblock body %}

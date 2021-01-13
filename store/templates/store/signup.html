@@ -1,0 +1,46 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+	
+	<div class="card mx-auto col-md-9 mt-2">
+			
+			<div class="card-body">
+				<h2>Signup Form</h2>
+				<form  method="post">
+					{% csrf_token %}
+
+					<table  class="table table-borderless mr-2">
+					{% for i in form %}
+					<tr>
+						<td>{{i}}</td>
+					</tr>
+					{% endfor %}
+				</table>
+
+				<input type="submit" value="Register" class=" btn btn-success btn-block">
+		</form>
+
+
+		
+	</div>
+	
+
+	</div>
+
+ <!-- <form action="{% url 'signup'%}" method="POST">
+
+		<div class = "container ">
+			<div  class="card col-md-6" style="margin: auto;margin-top: 30px;">
+			<div class="card-header bg-info">signup form</div>
+			<div class="card-body">
+				{% csrf_token %}
+				{{form.as_p}}
+				<button type="submit" class="btn btn-primary">signup </button>
+			</div>
+				
+			</div>
+		</div>
+	</form> -->
+{% endblock content %}
