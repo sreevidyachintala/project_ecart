@@ -29,8 +29,7 @@ def addproduct(request):
 			return HttpResponse("data added successfully")
 	form=AddProductForm()
 
-	# products = Product.objects.all()
-	# context = {'products':products}
+	
 	
 	return render(request,'store/addproduct.html',{'form':form})
 	

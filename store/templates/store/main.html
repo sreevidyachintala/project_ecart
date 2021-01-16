@@ -64,9 +64,9 @@
 
   <nav class="navbar navbar-expand-sm bg-info navbar-dark">
     <a class="navbar-brand" href="{% url 'store' %}">Ecom</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -75,13 +75,7 @@
         </li> <ul class="navbar-nav">
       {% if not user.is_authenticated %}
 
-<!-- <li class="nav-item">
-        <a class="nav-link" href="#">{{request.user}}</a>
-      </li> -->
-      <!--  <li class="nav-item active">
-          <a class="nav-link" href="{% url 'dsh' }">Dashboard <span class="sr-only">(current)</span></a>
-        </li> -->
-          
+
         
        <li class="nav-item active">
           <a class="nav-link" href="{% url 'about' %}">AboutUs <span class="sr-only">(current)</span></a>
@@ -90,14 +84,8 @@
           <a class="nav-link" href="{% url 'contact' %}">Contact Us<span class="sr-only">(current)</span></a>
         </li>
 
-       
-
-        
-           <!--  <li class="nav-item">
-        <a class="nav-link" href="{% url 'signup'%}">signup</a>
-      </li> -->
       <li class="nav-item active">
-        <a class="nav-link" href="{% url 'log'%}">signin<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'log'%}">Signin<span class="sr-only">(current)</span></a>
       </li>
    
 
@@ -108,9 +96,10 @@
       
        {% else %}
 
-        <li class="nav-item active">
+        <!-- <li class="nav-item active">
           <a class="nav-link" href="{% url 'dsh' }">Dashboard <span class="sr-only">(current)</span></a>
-        </li>
+        </li> -->
+
 
        <div class="dropdown">
   <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
