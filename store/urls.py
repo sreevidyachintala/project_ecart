@@ -22,7 +22,7 @@ urlpatterns = [
 	path('dsh/',views.dashboard,name='dsh'),
 	path('log/',auth_views.LoginView.as_view(template_name='store/login1.html'),name='log'),
 	path('lgo/',auth_views.LogoutView.as_view(template_name='store/logout.html'),name='lgot'),
-
+	path('upfle/',views.upfle,name='upfle'),	
 	
 	path('addpro/',views.addproduct,name="addpro"),
 	

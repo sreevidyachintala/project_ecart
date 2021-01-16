@@ -25,3 +25,15 @@ class AddProductForm(ModelForm):
 	class Meta:
 		model=Product
 		fields='__all__'
+
+
+class Upfle(ModelForm):
+	class Meta:
+		model=User
+		fields=['username','first_name','last_name','email']
+		widgets={
+		'username':forms.TextInput(attrs={'class':'form-control','readonly':True}),
+		'first_name':forms.TextInput(attrs={'class':'form-control','placeholder':'enter first_name'}),
+		'last_name':forms.TextInput(attrs={'class':'form-control','placeholder':'enter last_name'}),
+		'email':forms.EmailInput(attrs={'class':'form-control','readonly':True}),
+		}

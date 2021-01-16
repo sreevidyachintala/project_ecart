@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.http import HttpResponse
 
 
-from store.forms import Usreg
+from store.forms import Usreg,Upfle
 import json
 import datetime
 from .models import * 
@@ -121,7 +121,7 @@ def processOrder(request):
 
 	return JsonResponse('Payment submitted..', safe=False)
 
-
+@login_required
 def profile(request):
 	return render(request,'store/profile.html')
 
@@ -129,6 +129,16 @@ def profile(request):
 @login_required
 def dashboard(request):
 	return render(request,'store/dsh.html')
+@login_required
+def upfle(request):
+	if request.method=="POST":
+		t=Upfle(request.POST,instance=request.user)
+		if t.is_valid():
+			t.save()
+			messages.success(request,"successfully updated")
+			return redirect('/profile')
+	t=Upfle(instance=request.user)
+	return render(request,'store/update.html',{'y':t})
 
 def signup(request):
 	if request.method=='POST':

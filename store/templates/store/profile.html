@@ -3,6 +3,16 @@
 {% block content %}
 
 <div class="container">
+	{% if messages %}
+        {% for j in messages %}
+        <div class="alert alert-{{j.tags}} alert-dismissible">
+            {{j}}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            
+            
+        </div>
+        {% endfor %}
+        {% endif %}
 	<div class="row mt-3 ">
 		<div class="card col-md-3">
 
@@ -12,13 +22,23 @@
 		</div>
 		<div class="card col-md-5" style="margin: auto;">
 			<h2 class="bg-secondary text-white text-center p-2 border rounded my-2">Details</h2>
-			<table class="card-body table table-borderless mx-3 my-2">
-				
+			<form method="post">
+				{% csrf_token %}
+				<table class="card-body table table-borderless mx-3 my-2">
 				
 				<tr>
 					<th>Username</th>
 					<td>{{user.username}}</td>
 				</tr>
+				<tr>
+					<th>Firstname</th>
+					<td>{{user.first_name}}</td>
+				</tr>
+				<tr>
+					<th>Lastname</th>
+					<td>{{user.last_name}}</td>
+				</tr>
+				
 				<tr>
 					<th>DateOf Joining</th>
 					<td>{{user.date_joined}}</td>
@@ -31,6 +51,11 @@
 					
 
 			</table>
+			
+			<div class="my-2">
+				<a href="{% url 'upfle' %}" class="btn btn-outline-success" >Update</a>
+			</div>
+			</form>
 			
 			</div>
 			
