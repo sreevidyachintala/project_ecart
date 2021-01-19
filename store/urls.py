@@ -25,6 +25,7 @@ urlpatterns = [
 	path('upfle/',views.upfle,name='upfle'),	
 	
 	path('addpro/',views.addproduct,name="addpro"),
+	path('payment/',views.payment,name='payment'),
 	
 
 

@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from store.models import *
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
+#from .models import update
 
 class Usreg(UserCreationForm):
 	# class Meta:
@@ -37,3 +38,11 @@ class Upfle(ModelForm):
 		'last_name':forms.TextInput(attrs={'class':'form-control','placeholder':'enter last_name'}),
 		'email':forms.EmailInput(attrs={'class':'form-control','readonly':True}),
 		}
+
+# class imagepro(forms.ModelForm):
+# 	class Meta:
+# 		model = update
+# 		fields = ['age','image']
+# 		widgets={
+# 		'age':forms.NumberInput(attrs={'class':'form-control'})
+# 		}

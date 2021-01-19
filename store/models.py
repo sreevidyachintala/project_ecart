@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 
@@ -81,3 +83,17 @@ class ShippingAddress(models.Model):
 
 	def __str__(self):
 		return self.address
+
+
+
+
+class update(models.Model):
+	image=models.ImageField(upload_to='Profile_pics/',default='user.png')
+	age=models.IntegerField(default=18)
+	p=models.OneToOneField(User,on_delete=models.CASCADE)
+
+
+@receiver(post_save,sender=User)
+def creatprofile(sender,instance,created,**kwargs):
+	if created:
+		update.objects.create(p=instance)

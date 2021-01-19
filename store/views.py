@@ -4,6 +4,7 @@ from django.http import HttpResponse
 
 
 from store.forms import Usreg,Upfle
+
 import json
 import datetime
 from .models import * 
@@ -17,6 +18,8 @@ def about(request):
 def contact(request):
 	return render(request,'store/contact.html')
 
+def payment(request):
+	return render(request,'store/payment.html')
 
 def addproduct(request):
 	if request.method=="POST":
@@ -133,11 +136,14 @@ def dashboard(request):
 def upfle(request):
 	if request.method=="POST":
 		t=Upfle(request.POST,instance=request.user)
+		#im=imagepro(request.POST,request.FILES,instance=request.user.update)
 		if t.is_valid():
 			t.save()
+			#im.save()
 			messages.success(request,"successfully updated")
 			return redirect('/profile')
 	t=Upfle(instance=request.user)
+	#im=imagepro(instance=request.user.update)
 	return render(request,'store/update.html',{'y':t})
 
 def signup(request):

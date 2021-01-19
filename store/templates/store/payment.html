@@ -1,0 +1,34 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container-fluid mt-5">
+	
+		<div class="card">
+			<div class="card-header">
+				<h5>Payment Options</h5>
+				<div class="form-check-inline">
+                    
+                    <input type="radio" class="form-check-input my-2 " name="gen">Cash On Delivery
+                    </label>
+                </div><br></br>
+                <div class="form-check-inline">
+                  <label class="form-check-label">
+                  <input type="radio" class="form-check-input my-2" name="gen">Debit/Credit Card
+                  </label>
+                </div><br></br>
+                <div class="form-check-inline">
+                  <label class="form-check-label">
+                  <input type="radio" class="form-check-input my-2" name="gen">EMI
+                  </label>
+                </div>
+			</div>
+			<div class="mx-0 mt-2 mb-1 ml-2">
+				<a href="#" class="btn btn-success">Place Your Order</a>
+			</div>
+			
+		</div>
+		
+	</div>
+{% endblock content %}
