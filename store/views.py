@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import JsonResponse
 from django.http import HttpResponse
 
-
+from django.contrib.auth.models import User
 from store.forms import Usreg,Upfle,imagepro
 
 import json
@@ -150,9 +150,10 @@ def signup(request):
 	if request.method=='POST':
 		form =Usreg(request.POST)
 		if form.is_valid():
-			form.save()
-			print(user.id)
-			#data=Customer.objects.create(user_id=user.id,name=user.name,email=user.email)
+			d=form.save(commit=False)
+			d.save()
+			print(d.id)
+			data=Customer.objects.create(user_id=d.id,name=d.username,email=d.email)
 			#data.save()
 			#return HttpResponse('<script>alert("user data inserted successfully")</script>')
 			messages.success(request,"successfully registered please login")
