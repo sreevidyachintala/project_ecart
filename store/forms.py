@@ -39,10 +39,10 @@ class Upfle(ModelForm):
 		'email':forms.EmailInput(attrs={'class':'form-control','readonly':True}),
 		}
 
-# class imagepro(forms.ModelForm):
-# 	class Meta:
-# 		model = update
-# 		fields = ['age','image']
-# 		widgets={
-# 		'age':forms.NumberInput(attrs={'class':'form-control'})
-# 		}
+class imagepro(forms.ModelForm):
+	class Meta:
+		model = update
+		fields = ['age','image']
+		widgets={
+		'age':forms.NumberInput(attrs={'class':'form-control'})
+		}

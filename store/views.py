@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.http import HttpResponse
 
 
-from store.forms import Usreg,Upfle
+from store.forms import Usreg,Upfle,imagepro
 
 import json
 import datetime
@@ -136,21 +136,24 @@ def dashboard(request):
 def upfle(request):
 	if request.method=="POST":
 		t=Upfle(request.POST,instance=request.user)
-		#im=imagepro(request.POST,request.FILES,instance=request.user.update)
-		if t.is_valid():
+		im=imagepro(request.POST,request.FILES,instance=request.user.update)
+		if t.is_valid() and im.is_valid():
 			t.save()
-			#im.save()
+			im.save()
 			messages.success(request,"successfully updated")
 			return redirect('/profile')
 	t=Upfle(instance=request.user)
-	#im=imagepro(instance=request.user.update)
-	return render(request,'store/update.html',{'y':t})
+	im=imagepro(instance=request.user.update)
+	return render(request,'store/update.html',{'y':t,'im':im})
 
 def signup(request):
 	if request.method=='POST':
 		form =Usreg(request.POST)
 		if form.is_valid():
 			form.save()
+			print(user.id)
+			#data=Customer.objects.create(user_id=user.id,name=user.name,email=user.email)
+			#data.save()
 			#return HttpResponse('<script>alert("user data inserted successfully")</script>')
 			messages.success(request,"successfully registered please login")
 			return redirect('/log')			
